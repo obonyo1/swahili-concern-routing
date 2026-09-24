@@ -1,27 +1,26 @@
 # Web framework
-flask==3.0.3
-flask-socketio==5.3.6
-flask-cors==4.0.1
+flask
+flask-socketio
+flask-cors
 
 # Database
-psycopg2-binary==2.9.9
-sqlalchemy==2.0.30
+psycopg2-binary
+sqlalchemy
 
 # Machine learning
-torch==2.3.0
-transformers==4.41.2
-xgboost==2.0.3
-scikit-learn==1.5.0
-imbalanced-learn==0.12.3
-shap==0.45.1
+torch
+transformers
+xgboost
+scikit-learn
+imbalanced-learn
+shap
 
 # Speech recognition
-openai-whisper==20231117
+openai-whisper
 
 # Data handling
-pandas==2.2.2
-numpy==1.26.4
+pandas
+numpy
 
 # Utilities
-python-dotenv==1.0.1
-gunicorn==22.0.0
+python-dotenv
