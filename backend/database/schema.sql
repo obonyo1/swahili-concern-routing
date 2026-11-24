@@ -1,21 +1,14 @@
--- Swahili Concern Classification System
--- Database Schema
--- Author: Obonyo Paul Rapando, 169688
-
--- Categories table
 CREATE TABLE IF NOT EXISTS categories (
     category_id     SERIAL PRIMARY KEY,
     category_name   VARCHAR(50) NOT NULL UNIQUE
 );
 
 INSERT INTO categories (category_name) VALUES
+    ('Education'),
     ('Food Security'),
-    ('Health'),
-    ('Shelter'),
-    ('Safety')
+    ('Health')
 ON CONFLICT DO NOTHING;
 
--- Residents table
 CREATE TABLE IF NOT EXISTS residents (
     resident_id         SERIAL PRIMARY KEY,
     phone_number        VARCHAR(20),
@@ -23,7 +16,6 @@ CREATE TABLE IF NOT EXISTS residents (
     created_at          TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- CBOs table
 CREATE TABLE IF NOT EXISTS cbos (
     cbo_id              SERIAL PRIMARY KEY,
     organisation_name   VARCHAR(200) NOT NULL,
@@ -33,7 +25,6 @@ CREATE TABLE IF NOT EXISTS cbos (
     created_at          TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Concerns table
 CREATE TABLE IF NOT EXISTS concerns (
     concern_id           SERIAL PRIMARY KEY,
     resident_id          INTEGER REFERENCES residents(resident_id),
@@ -46,7 +37,6 @@ CREATE TABLE IF NOT EXISTS concerns (
     submission_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Routing log table
 CREATE TABLE IF NOT EXISTS routing_log (
     log_id             SERIAL PRIMARY KEY,
     concern_id         INTEGER REFERENCES concerns(concern_id),
@@ -54,7 +44,6 @@ CREATE TABLE IF NOT EXISTS routing_log (
     routing_timestamp  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Review queue table
 CREATE TABLE IF NOT EXISTS review_queue (
     queue_id            SERIAL PRIMARY KEY,
     concern_id          INTEGER REFERENCES concerns(concern_id),
